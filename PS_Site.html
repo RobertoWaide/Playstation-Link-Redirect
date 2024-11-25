@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title> <!-- O título será definido dinamicamente -->
+    <title></title>
     <style>
         body {
             display: flex;
@@ -30,7 +30,7 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            border: 3px solid #43b1e9; /* Borda da imagem */
+            border: 3px solid #43b1e9; /* Cor borda da imagem */
         }
 
         .name {
@@ -64,7 +64,7 @@
 <body>
     <div class="container">
         <img src="https://static-resource.np.community.playstation.net/avatar_xl/WWS_A/A2119_xl.png" alt="Avatar">
-        <div class="name" id="name"></div> <!-- O nome será definido dinamicamente -->
+        <div class="name" id="name"></div>
     </div>
     <div class="buttons">
         <button class="button" onclick="copyNick()">Copiar</button>
@@ -73,16 +73,14 @@
     </div>
 
     <script>
-        // Variável com o nome do jogador
+        // Nome do jogador
         const playerName = "RWPlayer_PS";
-
-        // Atualiza o título da página
+        
         document.title = playerName;
 
-        // Atualiza o nome no retângulo
         document.getElementById("name").textContent = playerName;
 
-        // Função para copiar o nick
+        // Copiar o nick
         function copyNick() {
             navigator.clipboard.writeText(playerName).then(() => {
                 alert("Nick copiado: " + playerName);
@@ -92,12 +90,12 @@
             });
         }
 
-        // Função para redirecionar para o perfil
+        // Redirecionar para o perfil
         function redirectToProfile() {
             window.location.href = "https://psnprofiles.com/RWPlayer_PS"; // Substitua pelo link do perfil desejado
         }
 
-        // Função para fechar a aba
+        // Fechar a aba
         function closeTab() {
             window.close();
         }
