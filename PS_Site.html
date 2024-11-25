@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title> <!-- O título será definido dinamicamente -->
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #3b3a3a; /* Cor do fundo */
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: rgb(50, 48, 48); /* Cor do retângulo */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .container img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #43b1e9; /* Borda da imagem */
+        }
+
+        .name {
+            font-size: 32px;
+            color: #ffffff; /* Cor do texto */
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #43b1e9; /* Cor dos botões */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #3590b8; /* Cor ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://static-resource.np.community.playstation.net/avatar_xl/WWS_A/A2119_xl.png" alt="Avatar">
+        <div class="name" id="name"></div> <!-- O nome será definido dinamicamente -->
+    </div>
+    <div class="buttons">
+        <button class="button" onclick="copyNick()">Copiar</button>
+        <button class="button" onclick="redirectToProfile()">Perfil</button>
+        <button class="button" onclick="closeTab()">Sair</button>
+    </div>
+
+    <script>
+        // Variável com o nome do jogador
+        const playerName = "RWPlayer_PS";
+
+        // Atualiza o título da página
+        document.title = playerName;
+
+        // Atualiza o nome no retângulo
+        document.getElementById("name").textContent = playerName;
+
+        // Função para copiar o nick
+        function copyNick() {
+            navigator.clipboard.writeText(playerName).then(() => {
+                alert("Nick copiado: " + playerName);
+            }).catch(err => {
+                console.error("Erro ao copiar texto: ", err);
+                alert("Erro ao copiar o nick.");
+            });
+        }
+
+        // Função para redirecionar para o perfil
+        function redirectToProfile() {
+            window.location.href = "https://psnprofiles.com/RWPlayer_PS"; // Substitua pelo link do perfil desejado
+        }
+
+        // Função para fechar a aba
+        function closeTab() {
+            window.close();
+        }
+    </script>
+</body>
+</html>
